@@ -180,7 +180,7 @@ class SdpContents : public Contents
                     * 
                     **/
                   Origin(const Data& user,
-                         const UInt64& sessionId,
+                         const Data& sessionId,
                          const UInt64& version,
                          AddrType addr,
                          const Data& address);
@@ -193,11 +193,11 @@ class SdpContents : public Contents
                   /** @brief returns the session ID
                     * @return session ID
                     **/
-                  const UInt64& getSessionId() const {return mSessionId;}
+                  const Data& getSessionId() const {return mSessionId;}
                   /** @brief returns the session ID
                     * @return session ID
                     **/
-                  UInt64& getSessionId() { return mSessionId; }
+                  Data& getSessionId() { return mSessionId; }
                   
                   /** @brief returns the session version
                     * @return session version
@@ -238,7 +238,7 @@ class SdpContents : public Contents
                   Origin();
 
                   Data mUser;
-                  UInt64 mSessionId;
+                  Data mSessionId;
                   UInt64 mVersion;
                   AddrType mAddrType;
                   Data mAddress;

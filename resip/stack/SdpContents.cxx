@@ -252,7 +252,7 @@ SdpContents::Session::Origin::operator=(const Origin& rhs)
 
 
 SdpContents::Session::Origin::Origin(const Data& user,
-                                     const UInt64& sessionId,
+                                     const Data& sessionId,
                                      const UInt64& version,
                                      AddrType addr,
                                      const Data& address)
@@ -293,13 +293,10 @@ SdpContents::Session::Origin::parse(ParseBuffer& pb)
    pb.data(mUser, anchor);
 
    anchor = pb.skipChar(Symbols::SPACE[0]);
-   try
+   pb.data(mSessionId, anchor);
+   if (!mSessionId.isDigits())
    {
-      mSessionId = pb.uInt64();
-   }
-   catch(ParseException& e)
-   {
-       WarningLog(<< "Exception parsing origin sessionid: " << e);
+      WarningLog(<< "Session ID contains non digit characters: " << mSessionId);
    }
    pb.skipToChar(Symbols::SPACE[0]);
 

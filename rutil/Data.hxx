@@ -774,6 +774,11 @@ class Data
       UInt64 convertUInt64() const;
 
       /**
+        Returns whether the content of the object contains just digits.
+      */
+      bool isDigits() const;
+
+      /**
         Returns true if this Data starts with the bytes indicated by
         the passed-in Data. For example, if this Data is "abc", then
         prefix(Data("ab")) would be true; however, prefix(Data("abcd"))

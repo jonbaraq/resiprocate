@@ -1796,6 +1796,20 @@ decimals:
 }
 #endif
 
+Data::isDigits() const
+{
+   char* p = mBuf;
+   const char* const end = p + mSize;
+   for (; p != end; ++p)
+   {
+      if (!isdigit(*p))
+      {
+      return false;
+      }
+   }
+   return mSize > 0;
+}
+
 bool
 Data::prefix(const Data& pre) const
 {
