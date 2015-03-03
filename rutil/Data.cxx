@@ -1796,7 +1796,7 @@ decimals:
 }
 #endif
 
-Data::isDigits() const
+bool Data::isDigits() const
 {
    char* p = mBuf;
    const char* const end = p + mSize;
